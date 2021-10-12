@@ -119,3 +119,33 @@ $minetteSLeftPawCuteName = $minette->getLeftPaw()?->getCuteNickname();
 *// equals to* :`$minetteSLeftPaw ? $minetteSLeftPaw->getCuteNickname() : null;`
 
 We can also chain the comparisons, as in `$awesomeHuman->account?->subreddit?->getTitle()`.
+
+
+## OOP
+### Constructor Property Promotion
+In classes with constructors, properties definition is repetitive and increases work time.
+Property Promotion solves this problem by  initializing the properties directly inside the Constructor.
+
+```php
+public function __construct
+(
+	public string $sender,
+    public int $numberOfItems
+) {}
+```
+
+It's a shorthand of the usual property / service initialization. The lightened constructor is parsed and transformed into the classical syntax before being compiled.
+
+
+Another DX enhancement, Property Promotion is especially useful while coding Value Objects or DTOs (most of the classes in a project).
+But its flexibility and its lightness increases the productivity in any given context.
+
+#### Promoted Properties don't have to be type-hinted.
+```php
+public function __construct
+(
+	public string $sender,
+	public $numberOfItems,
+	public bool $isFull,
+) {}
+```
