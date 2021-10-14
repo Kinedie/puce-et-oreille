@@ -140,7 +140,7 @@ It's a shorthand of the usual property / service initialization. The lightened c
 Another DX enhancement, Property Promotion is especially useful while coding Value Objects or DTOs (most of the classes in a project).
 But its flexibility and its lightness increases the productivity in any given context.
 
-#### Promoted Properties don't have to be type-hinted.
+#### While Promoted, Properties don't have to be type-hinted.
 ```php
 public function __construct
 (
@@ -149,3 +149,52 @@ public function __construct
 	public bool $isFull,
 ) {}
 ```
+
+#### Mixed syntax is allowed
+```php
+public bool $isFull;
+
+public function __construct
+(
+	public bool $isFull,
+	public int $numberOfItems,
+) {
+	$this->isFull = $isFull;
+}
+```
+
+#### It is still possible to assign a default value to a Propery while Promoted
+```php
+public function __construct
+(
+	public bool $isFull,
+	public int $numberOfItems = 1,
+) {}
+```
+
+#### Doc comments are supported and can be added within promoted properties
+```php
+public function __construct
+(
+	public bool $isFull,
+	/** @var int */
+	public $numberOfItems,
+) {}
+```
+
+#### Attributes are supported too
+```php
+public bool $isFull
+
+public function __construct
+(
+	#[LovListener]
+	bool $isFull,
+	public $numberOfItems = 1,
+) {}
+```
+
+
+
+Properties **can't be promoted in Abstract classes constructors, nor Interfaces constructors.
+But it is allowed in Traits**
