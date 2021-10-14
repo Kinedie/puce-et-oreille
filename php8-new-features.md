@@ -36,8 +36,8 @@ public function invitesALaSoiree(): array | string
 
 *// The function can either return a string or an array*
 
-UNION TYPES can be `null`. Actually, using `null` in a union type expression that contains another type is like using a question mark in front of the same type.
-UNION TYPES can't work with `void` since it's not a return type.
+Union Types can be `null`. Actually, using `null` in a union type expression that contains another type is like using a question mark in front of the same type.
+Union Types can't work with `void` since it's not a return type.
 
 
 ### Stringable Interfaces
@@ -68,6 +68,33 @@ echo $truc;
 ```
 
 *// returns 'Hi, my name is - chika chika - Gina' since $neighbourlyPuppy owns a* `__toString` *method / is Stringable*
+
+### Static as return type
+Sometimes we need a function to return the class in which it is implemented, especially in Builders.
+We type-hint the return value with `self`.
+
+However, `self` can return the class on which the function is called as much as its parent class (see : Liskov Principle).
+PHP 8 **introduces the** `static` **return type to restrict** this somewhat confusing type-hinting.
+
+Let's consider a class `QuirkyDeveloper` which extends another class `EccentricDeveloper` :
+
+```php
+class QuirkyDeveloper extends EccentricDeveloper
+{
+	public string $mechanicalKeyboardBrand;
+	public int $numberOfMonitors;
+
+	public function upgradeNumerOfMonitors(): static
+	{
+		$this->numberOfMonitors = $this->numberOfMonitors + 1;
+
+		return $this;
+		// return new static();
+	}
+}
+```
+
+By type-hinting the return value with `static`, we made sure the object returned is a QuirkyDeveloper and not its parent class.
 
 
 ## Syntax
@@ -193,7 +220,6 @@ public function __construct
 	public $numberOfItems = 1,
 ) {}
 ```
-
 
 
 Properties **can't be promoted in Abstract classes constructors, nor Interfaces constructors.
