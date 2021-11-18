@@ -13,5 +13,5 @@ A RESTful API is a service-oriented architecture. It follows the following const
 - must be distinguished by its own unique identifier, such as an ID in the URI.
 - must have a representation (be formatted).
 - must be self-written ("Content-Type" must be defined).
-6. The sixth rule isn't mandatory. **The code may be on demand**, meaning any OPTIONS request may be functional (anytime a request is done to the server, the related piece of code may be executed on the client side).
+6. The sixth rule isn't mandatory. **The code may be on demand**, meaning anytime a request is done to the server, the related piece of code may be executed on the client side.
 ## What about Graphql ?
