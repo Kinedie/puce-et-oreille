@@ -20,5 +20,6 @@ FROM <table_name';
 ### EXISTS condition
 #### IF EXISTS
 #### IF NOT EXISTS
-
+### What is a Common Table Expression (or CTE) ?
+### What are triggers ?
 
