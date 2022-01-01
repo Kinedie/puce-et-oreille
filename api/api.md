@@ -4,7 +4,8 @@ An API is an application interface. It encourages the interaction with the appli
 Building its own API aims at controlling how resources are made available after defining constraints.
 The application is split into different resources.
 ## What is SOAP and why is its reputation so bad ?
-SOAP stands for **Simple Object Access Protocol**. It's standard that emerged in the late 1990s.
+SOAP stands for **Simple Object Access Protocol**. This standard emerged in the late 1990s.
+https://blog.postman.com/soap-api-definition/
 ## What has REST brought ?
 REST or REpresentational State Transfer, is an architectural style. Roy Fielding, an American computer scientist conceptualized it and presented it in 2020.
 A RESTful API is a service-oriented architecture. It follows the following constraints :
